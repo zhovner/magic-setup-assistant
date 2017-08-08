@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+  </head>
+  <style>
+    :not(input):not(textarea),
+    :not(input):not(textarea)::after,
+    :not(input):not(textarea)::before {
+      -webkit-user-select: none;
+      user-select: none;
+      cursor: default;
+
+
+    }
+    input, button, textarea, :focus {
+      outline: none; // You should add some other style for :focus to help UX/a11y
+    }
+
+    body {
+      text-align: center;
+      //margin: 6em 0 0 0;
+      //padding: 0;
+      font-family: SanFranciscoRegular;
+      font-size: 13px;
+    }
+
+    div {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .row {
+      margin-left: -15px;
+      margin-right: -15px;
+    }
+
+
+    @font-face {
+      font-family: SanFranciscoBold;
+      src: url(resources/SanFranciscoFont/SystemSanFranciscoDisplayBold.ttf);
+    }
+    @font-face {
+      font-family: SanFranciscoRegular;
+      src: url(resources/SanFranciscoFont/SystemSanFranciscoDisplayRegular.ttf);
+    }
+
+    h1 {
+      font-family: SanFranciscoRegular;;
+      font-weight:normal;
+      font-size: 40px;
+      padding: 0px;
+      color: #929292;
+    }
+
+  </style>
+  <body>
+    <h1>Welcome</h1>
+    <!-- All of the Node.js APIs are available in this renderer process. -->
+    <p>In just a few steps, you can register and set up you Mac.</p>
+
+      <img height="200" src="resources/worldMapSmall.png"/>
+
+      <br>
+      <br>
+
+      <div>
+        <select multiple size=9 style="width:250px;">
+          <option>English</option>
+          <option>Русский</option>
+          <option>Тоҷикистон</option>
+          <option>Украiнська</option><
+          <option>Беларуская</option>
+          <option>Español</option>
+          <option>中国简体</option>
+        </select>
+        <br>
+        <input style="float: left;" type="checkbox" value="Showall"><span style="float: left;">
+        Show All</span>
+      </div>
+    <br>
+    <br>
+    <br>
+
+    <div>
+    <table style="border: 1px solid transparent">
+      <tr>
+        <!-- This button is not active on first page -->
+        <th ><img width="30" src="resources/arrowbackbutton.png"></th>
+        <th ></th>
+        <th ></th>
+        <!-- Pressed button is resources/arrowbuttonPressed.png -->
+        <th ><a href="#"><img width="30" src="resources/arrowbutton.png"></a></th>
+      </tr>
+      <tr>
+        <td >Back</td>
+        <td ></td>
+        <td ></td>
+        <td >Continue</td>
+      </tr>
+    </table>
+    </div>
+
+
+
+
+  </body>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+</html>

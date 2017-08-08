@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>com.apple.inputmethod.TCIM:0</key>
+	<dict>
+		<key>defaultTypingStyleByLocale</key>
+		<dict>
+			<key>CN</key>
+			<string>TYPING_STYLE_TCIM_PINYIN</string>
+			<key>TW</key>
+			<string>TYPING_STYLE_TCIM_ZHUYIN</string>
+			<key>HK</key>
+			<string>TYPING_STYLE_TCIM_SUCHENG</string>
+		</dict>
+	</dict>
+	<key>com.apple.inputmethod.SCIM:0</key>
+	<dict>
+		<key>defaultTypingStyle</key>
+		<string>TYPING_STYLE_SCIM_PINYIN</string>
+	</dict>
+	<key>com.apple.inputmethod.Kotoeri:0</key>
+	<dict>
+		<key>hasAltMethod</key>
+		<string>YES</string>
+		<key>typingStyles</key>
+		<array>
+			<string>TYPING_STYLE_ROMAJI</string>
+			<string>TYPING_STYLE_KANA</string>
+		</array>
+		<key>defaultTypingStyle</key>
+		<string>TYPING_STYLE_ROMAJI</string>
+		<key>name</key>
+		<string>Kotoeri</string>
+	</dict>
+</dict>
+</plist>

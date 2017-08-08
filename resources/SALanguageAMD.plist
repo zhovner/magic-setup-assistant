@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>bs</key>
+	<string>BOS</string>
+	<key>de_CH</key>
+	<string>DES</string>
+	<key>fr_CA</key>
+	<string>FRC</string>
+	<key>fr_CH</key>
+	<string>FRS</string>
+	<key>it_CH</key>
+	<string>ITS</string>
+	<key>pt_BR</key>
+	<string>PTB</string>
+	<key>zh-Hans</key>
+	<string>ZHS</string>
+	<key>zh-Hant</key>
+	<string>ZHT</string>
+</dict>
+</plist>

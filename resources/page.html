@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <style type="text/css">
+        body
+        {
+            background-color: rgba( 0, 0, 0, 0 );
+        }
+        p, label
+        {
+            font-family: "Lucida Grande";
+        }
+        #enter-name input, #enter-password input
+        {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%; /* need absolute width for auto-centering to work */
+        }
+        .section
+        {
+            margin: 0 auto;
+            text-align: center;
+            display: none;
+        }
+        .section input
+        {
+            height: 1.8em;
+            margin-bottom: 0.5em;
+        }
+        #enter-birthday
+        {
+            display: block;
+        }
+    </style>
+</head>
+<body onload="doWhatever();">
+    <script type="text/javascript">
+        var currentPane = "enter-birthday";
+        function doWhatever()
+        {
+            try
+            {
+                window.ViewController.pageTitle = "New Apple ID";
+                window.ViewController.forwardNavigateItem.title = "Continue";
+                window.ViewController.forwardNavigateItem.enabled = false;
+                window.ViewController.alternateNavigateItem.hidden = true;
+            }
+            catch ( e )
+            {
+                window.ViewController.log( "Got exception " + e );
+            }
+            
+            window.ViewController.forwardAction = function( handler )
+            {
+                if ( currentPane == "enter-birthday" )
+                {
+                    activatePane( "enter-name" );
+                    handler( false );
+                }
+                else if ( currentPane == "enter-name" )
+                {
+                    checkNameAndAddress( function( okay ) { if ( okay ) activatePane( "enter-password" ); } );
+                    handler( false );
+                }
+                else // enter-password
+                {
+                    activatePane( "creating" );
+                    setTimeout( function() { handler( true ) }, 5.0 * 1000 );
+                }
+            }
+            
+            document.getElementById( 'bmonth' ).focus();
+        }
+        function activatePane( paneName )
+        {
+            document.getElementById( currentPane ).style.display = "none";
+            document.getElementById( paneName ).style.display = "block";
+            currentPane = paneName;
+        }
+        function checkNameAndAddress( doneHandler )
+        {
+            var elem = document.getElementById( 'email' );
+            if ( elem.value.indexOf( "@" ) != -1 )
+                doneHandler( true );
+            else
+            {
+                window.ViewController.dropSheet( "There's no @ sign in your email address.", "Continue", "Go Back",
+                                                 function( idx ) { doneHandler( idx == 0 ); } );
+            }
+        }
+        function didChangeBirthday()
+        {
+            var m = document.getElementById( 'bmonth' ).value;
+            var d = document.getElementById( 'bday' ).value;
+            var y = document.getElementById( 'byear' ).value;
+            window.ViewController.forwardNavigateItem.enabled = ( m.length != 0 && d.length != 0 && y.length != 0 );
+        }
+        function didChangeName()
+        {
+        }
+        function didChangePassword()
+        {
+        }
+    </script>
+    
+    <div id="enter-birthday" class="section">
+        <p>Enter your birthday.</p>
+        <form>
+            <input type="text" id="bmonth" placeholder="Month" onblur="didChangeBirthday()" oninput="didChangeBirthday()">
+            <input type="text" id="bday" placeholder="Day" onblur="didChangeBirthday()" oninput="didChangeBirthday()">
+            <input type="text" id="byear" placeholder="Year" onblur="didChangeBirthday()" oninput="didChangeBirthday()">
+        </form>
+    </div>
+
+    <div id="enter-name" class="section">
+        <p>Enter your name and email address.</p>
+        <form>
+            <input type="text" id="fname" placeholder="First Name" onblur="didChangeName()" oninput="didChangeName()">
+            <input type="text" id="lname" placeholder="Last Name" onblur="didChangeName()" oninput="didChangeName()">
+            <input type="text" id="email" placeholder="Email Address" onblur="didChangeName()" oninput="didChangeName()">
+        </form>
+    </div>
+
+
+    <div id="enter-password" class="section">
+        <p>Choose a password.</p>
+        <form>
+            <input type="password" id="pword" placeholder="Password" onblur="didChangePassword()" oninput="didChangePassword()">
+            <input type="password" id="pword" placeholder="Re-enter Password" onblur="didChangePassword()" oninput="didChangePassword()">
+        </form>
+    </div>
+    
+    <div id="creating" class="section">
+        <p>Creating your Apple ID...</p>
+    </div>
+</body>
+</html>
