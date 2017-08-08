@@ -10,6 +10,11 @@ Install dependencies
 Run  
 `npm start`
 
+### Folders
+
+`resources` -- resources extracted from original macOS Sierra `/System/Library/CoreServices/Setup Assistant.app`  
+`screenshots` -- screenshots of original Setup Assistant.app.  
+
 
 ![mac os first start wizard](http://i.imgur.com/XkLMMkL.png)
 
