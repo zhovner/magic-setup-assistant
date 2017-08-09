@@ -13,6 +13,35 @@
       cursor: default;
 
 
+    .list {
+      overflow-y: auto;
+      border: 1px solid black;
+      height: 3em;
+      width: 10em;
+      line-height: 1em;
+    }
+
+    .list::-webkit-scrollbar {
+      -webkit-appearance: none;
+    }
+
+    .list::-webkit-scrollbar:vertical {
+      width: 11px;
+    }
+
+    .list::-webkit-scrollbar:horizontal {
+      height: 11px;
+    }
+
+    .list::-webkit-scrollbar-thumb {
+      border-radius: 8px;
+      border: 2px solid white; /* should match background, can't be transparent */
+      background-color: rgba(0, 0, 0, .5);
+    }
+
+
+
+
     }
     input, button, textarea, :focus {
       outline: none; // You should add some other style for :focus to help UX/a11y
@@ -65,12 +94,15 @@
       <br>
       <br>
 
-      <div>
+      <div class="list">
         <select multiple size=9 style="width:250px;">
           <option>English</option>
           <option>Русский</option>
           <option>Тоҷикистон</option>
           <option>Украiнська</option><
+          <option>Беларуская</option>
+          <option>Español</option>
+          <option>中国简体</option>
           <option>Беларуская</option>
           <option>Español</option>
           <option>中国简体</option>
