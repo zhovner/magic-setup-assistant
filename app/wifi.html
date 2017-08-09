@@ -99,10 +99,29 @@
       <br>
       <br>
 
+
+    <script>
+        var WiFiControl = require('wifi-control');
+
+        //  Initialize wifi-control package with verbose output
+        WiFiControl.init({
+        });
+
+        //  Try scanning for access points:
+        WiFiControl.scanForWiFi( function(err, response) {
+            if (err) console.log(err);
+
+          console.log(response);
+        });
+    </script>
+
+
       <div class="list">
         <select multiple size=6 style="width:250px;">
-          <option>Wifi1</option>
-          <option>wifi2</option>
+          <option>MGTS GPON 163</option>
+          <option>Vovan</option>
+          <option>Beeline_WiFi_FREE</option>
+          <option>StarLink Service</option>
         </select>
         <br>
         <span><img height="30" src="resources/ActivityIndicator.gif">Looking for networks...</span>
@@ -135,8 +154,5 @@
 
   </body>
 
-  <script>
-    // You can also require other files to run in this process
-    require('../renderer.js')
-  </script>
+
 </html>
