@@ -1,6 +1,6 @@
 # macOS first boot fake wizard 
 
-![](/resources/magic-ico.png?raw=true =300x)
+<img width=150 src="/resources/magic-ico.png?raw=true" />
 
 
 Based on [Electron Framework](http://electron.atom.io/).  
