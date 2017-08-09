@@ -1,4 +1,8 @@
 # macOS first boot fake wizard 
+
+![Magic Setup Assistant](/resources/magic-ico.png?raw=true "macOS Fake  Setup Assistant")
+
+
 Based on [Electron Framework](http://electron.atom.io/).  
 Tested on Ubuntu 17.04 and MacBookPro11,4 2015 Motherboard 820-00138-A
 
