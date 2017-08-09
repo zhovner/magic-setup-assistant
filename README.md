@@ -1,6 +1,6 @@
 # macOS first boot fake wizard 
 
-![Magic Setup Assistant](/resources/magic-ico.png?raw=true "macOS Fake  Setup Assistant")
+![Magic Setup Assistant](/resources/magic-ico.png?raw=true "macOS Fake  Setup Assistant" =300x)
 
 
 Based on [Electron Framework](http://electron.atom.io/).  
