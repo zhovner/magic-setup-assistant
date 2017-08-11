@@ -61,11 +61,12 @@ div {
 
 @font-face {
   font-family: SanFranciscoBold;
-  src: url(resources/SanFranciscoFont/SystemSanFranciscoDisplayBold.ttf);
+  src: url(fonts/sanfranciscodisplay-bold-webfont.woff);
 }
+
 @font-face {
   font-family: SanFranciscoRegular;
-  src: url(resources/SanFranciscoFont/SystemSanFranciscoDisplayRegular.ttf);
+  src: url(fonts/sanfranciscodisplay-regular-webfont.woff);
 }
 
 h1 {
