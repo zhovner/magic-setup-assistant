@@ -71,8 +71,11 @@ div {
 
 h1 {
   font-family: SanFranciscoRegular;;
-  font-weight:normal;
-  font-size: 40px;
+  font-weight: normal;
+  letter-spacing: -0.035em;
+  font-size: 43px;
+  margin-top: 18px;
+  margin-bottom: 15px;
   padding: 0px;
   color: #929292;
 }
