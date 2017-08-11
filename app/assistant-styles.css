@@ -79,3 +79,7 @@ h1 {
   padding: 0px;
   color: #929292;
 }
+
+img {
+  -webkit-user-drag: none;
+}
