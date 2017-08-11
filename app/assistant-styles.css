@@ -45,7 +45,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: SanFranciscoRegular;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 div {
@@ -70,14 +70,18 @@ div {
 }
 
 h1 {
-  font-family: SanFranciscoRegular;;
+  font-family: SanFranciscoRegular;
   font-weight: normal;
   letter-spacing: -0.035em;
   font-size: 43px;
   margin-top: 18px;
-  margin-bottom: 15px;
+  margin-bottom: 14px;
   padding: 0px;
   color: #929292;
+}
+
+p, span {
+  letter-spacing: 0.013em;
 }
 
 img {
