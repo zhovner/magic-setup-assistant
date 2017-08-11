@@ -84,6 +84,6 @@ p, span {
   letter-spacing: 0.013em;
 }
 
-img {
+img, a {
   -webkit-user-drag: none;
 }
