@@ -1,9 +1,6 @@
 # macOS first boot fake wizard 
 
-<img style="float: left;" width=150 src="/app/resources/magic-ico.png?raw=true" />
-
-
-Based on [Electron Framework](http://electron.atom.io/).  
+<img align="left" width=150 src="/app/resources/magic-ico.png?raw=true" />Based on [Electron Framework](http://electron.atom.io/).  
 Tested on Ubuntu 17.04 and MacBookPro11,4 2015 Motherboard 820-00138-A
 
 ### Install and Run 
