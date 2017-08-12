@@ -113,3 +113,7 @@ img, a {
 .movement-buttons {
   margin-top: auto;
 }
+
+.description {
+  margin-top: 0px;
+}
