@@ -6,9 +6,9 @@ Screen resolution tested: `1440x900`
 Required: node **≥v6.9.5**  
   
 _  
-
+-  
       
-   
+***   
    
 ### Install and Run 
 
