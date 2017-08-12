@@ -92,3 +92,7 @@ img, a {
   margin-left: 0.1em;
   margin-top: 0.15em;
 }
+
+.countries__show_all {
+  float: left;
+}
