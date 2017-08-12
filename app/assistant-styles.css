@@ -87,3 +87,8 @@ p, span {
 img, a {
   -webkit-user-drag: none;
 }
+
+.worldmap {
+  margin-left: 0.1em;
+  margin-top: 0.15em;
+}
