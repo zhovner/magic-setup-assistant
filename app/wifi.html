@@ -6,73 +6,73 @@
     <title>Hello World!</title>
   </head>
   <body>
-    <h1>Select Your Wi-Fi Network</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    <p>If you connect to the Internet using a wired network or other networok device, click Other
-      <br>
-      Network Options. If you would rather set up your network connection later, click Continue.
-    </p>
-
-
-
-      <img height="140" src="resources/wififan.png"/>
-
-      <br>
-      <br>
-
-
-    <script>
-        var WiFiControl = require('wifi-control');
-
-        //  Initialize wifi-control package with verbose output
-        WiFiControl.init({
-        });
-
-        //  Try scanning for access points:
-        WiFiControl.scanForWiFi( function(err, response) {
-            if (err) console.log(err);
-
-          console.log(response);
-        });
-    </script>
-
-
-      <div class="list">
-        <select multiple size=6 style="width:250px;">
-          <option>MGTS GPON 163</option>
-          <option>Vovan</option>
-          <option>Beeline_WiFi_FREE</option>
-          <option>StarLink Service</option>
-        </select>
+    <div class="flex-container">
+      <div class="app">
+        <h1>Select Your Wi-Fi Network</h1>
+        <!-- All of the Node.js APIs are available in this renderer process. -->
+        <p>If you connect to the Internet using a wired network or other networok device, click Other
+          <br>
+          Network Options. If you would rather set up your network connection later, click Continue.
+        </p>
+    
+    
+    
+          <img height="140" src="resources/wififan.png"/>
+    
+          <br>
+          <br>
+    
+    
+        <script>
+            var WiFiControl = require('wifi-control');
+    
+            //  Initialize wifi-control package with verbose output
+            WiFiControl.init({
+            });
+    
+            //  Try scanning for access points:
+            WiFiControl.scanForWiFi( function(err, response) {
+                if (err) console.log(err);
+    
+              console.log(response);
+            });
+        </script>
+    
+    
+          <div class="list">
+            <select multiple size=6 style="width:250px;">
+              <option>MGTS GPON 163</option>
+              <option>Vovan</option>
+              <option>Beeline_WiFi_FREE</option>
+              <option>StarLink Service</option>
+            </select>
+            <br>
+            <span><img height="30" src="resources/ActivityIndicator.gif">Looking for networks...</span>
+          </div>
         <br>
-        <span><img height="30" src="resources/ActivityIndicator.gif">Looking for networks...</span>
+        <br>
+        <br>
+    
+        <div class="movement-buttons">
+        <table style="border: 1px solid transparent">
+          <tr>
+            <!-- This button is not active on first page -->
+            <th ><a href="index.html"><img width="30" src="resources/arrowbackbutton.png"></a></th>
+            <th ></th>
+            <th ></th>
+            <!-- Pressed button is resources/arrowbuttonPressed.png -->
+            <th ><a href="#"><img width="30" src="resources/arrowbutton.png"></a></th>
+          </tr>
+          <tr>
+            <td >Back</td>
+            <td ></td>
+            <td ></td>
+            <td >Continue</td>
+          </tr>
+        </table>
+        </div>
       </div>
-    <br>
-    <br>
-    <br>
-
-    <div>
-    <table style="border: 1px solid transparent">
-      <tr>
-        <!-- This button is not active on first page -->
-        <th ><a href="index.html"><img width="30" src="resources/arrowbackbutton.png"></a></th>
-        <th ></th>
-        <th ></th>
-        <!-- Pressed button is resources/arrowbuttonPressed.png -->
-        <th ><a href="#"><img width="30" src="resources/arrowbutton.png"></a></th>
-      </tr>
-      <tr>
-        <td >Back</td>
-        <td ></td>
-        <td ></td>
-        <td >Continue</td>
-      </tr>
-    </table>
     </div>
-
-
-
-
   </body>
 
 
