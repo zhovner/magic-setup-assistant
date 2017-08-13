@@ -16,11 +16,15 @@ function createWindow () {
   mainWindow = new BrowserWindow({
       frame: false,
       //radii: [5,5,5,5], //rounded corners
-      width: 800,
-      height: 600,
+      // width: 800,
+      // height: 600,
       resizable: false,
+      fullscreen: true,
       backgroundColor: '#ececec'
   })
+
+  // Disables F11 (Fullscreen switch)
+  mainWindow.setMenu(null);
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({

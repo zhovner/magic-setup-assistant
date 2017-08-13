@@ -6,60 +6,100 @@
     <title>Hello World!</title>
   </head>
   <body>
-    <h1>Welcome</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    <p>In just a few steps, you can register and set up your Mac.</p>
-
-      <img class="worldmap" height="200" src="resources/worldMapSmall.png"/>
-
-      <br>
-
-      <div class="list">
-        <select multiple size=9 style="width:250px;">
-          <option>English</option>
-          <option>Русский</option>
-          <option>Тоҷикистон</option>
-          <option>Украiнська</option>
-          <option>Беларуская</option>
-          <option>Español</option>
-          <option>中国简体</option>
-          <option>Беларуская</option>
-          <option>Español</option>
-          <option>中国简体</option>
-        </select>
-        <br>
-        <label class="countries__show_all"><input type="checkbox" value="Showall">Show All</label>
+    <div class="flex-container">
+      <div class="app">
+        <div class="tabs">
+          <!-- Country selection tab -->
+          <div class="tab active">
+            <h1>Welcome</h1>
+            <!-- All of the Node.js APIs are available in this renderer process. -->
+            <p class="description">In just a few steps, you can register and set up your Mac.</p>
+          
+            <img class="worldmap" src="resources/worldMapSmall.png"/>
+            
+            <div class="countries">
+              <select class="list" multiple size=9>
+                <option>English</option>
+                <option>Русский</option>
+                <option>Тоҷикистон</option>
+                <option>Украiнська</option>
+                <option>Беларуская</option>
+                <option>Español</option>
+                <option>中国简体</option>
+                <option>Беларуская</option>
+                <option>Español</option>
+                <option>中国简体</option>
+              </select>
+              <label><input type="checkbox" value="Showall">Show All</label>
+            </div>
+          </div>
+          
+          <!-- Wi-Fi tab -->
+          <div class="tab">
+            <h1>Select Your Wi-Fi Network</h1>
+            <!-- All of the Node.js APIs are available in this renderer process. -->
+            <p class="description">If you connect to the Internet using a wired network or other networok device, click Other
+              <br>
+              Network Options. If you would rather set up your network connection later, click Continue.
+            </p>
+        
+        
+        
+              <img height="140" src="resources/wififan.png"/>
+        
+              <br>
+              <br>
+        
+        
+            <script>
+                var WiFiControl = require('wifi-control');
+        
+                //  Initialize wifi-control package with verbose output
+                WiFiControl.init({
+                });
+        
+                //  Try scanning for access points:
+                WiFiControl.scanForWiFi( function(err, response) {
+                    if (err) console.log(err);
+        
+                  console.log(response);
+                });
+            </script>
+        
+        
+              <div class="list">
+                <select multiple size=6 style="width:250px;">
+                  <option>MGTS GPON 163</option>
+                  <option>Vovan</option>
+                  <option>Beeline_WiFi_FREE</option>
+                  <option>StarLink Service</option>
+                </select>
+                <br>
+                <span><img height="30" src="resources/ActivityIndicator.gif">Looking for networks...</span>
+              </div>
+          </div>
+        </div>
+  
+        <div class="movement-buttons">
+        <table style="border: 1px solid transparent">
+          <tr>
+            <!-- This button is not active on first page -->
+            <th ><img class="arrow-button" id="move-back-btn" src="resources/arrowbackbutton.png"></th>
+            <th ></th>
+            <th ></th>
+            <!-- Pressed button is resources/arrowbuttonPressed.png -->
+            <th ><img class="arrow-button" id="move-forward-btn" src="resources/arrowbutton.png"></th>
+          </tr>
+          <tr>
+            <td >Back</td>
+            <td ></td>
+            <td ></td>
+            <td >Continue</td>
+          </tr>
+        </table>
+        </div>
       </div>
-    <br>
-    <br>
-    <br>
-
-    <div>
-    <table style="border: 1px solid transparent">
-      <tr>
-        <!-- This button is not active on first page -->
-        <th ><img width="30" src="resources/arrowbackbutton.png"></th>
-        <th ></th>
-        <th ></th>
-        <!-- Pressed button is resources/arrowbuttonPressed.png -->
-        <th ><a href="wifi.html"><img width="30" src="resources/arrowbutton.png"></a></th>
-      </tr>
-      <tr>
-        <td >Back</td>
-        <td ></td>
-        <td ></td>
-        <td >Continue</td>
-      </tr>
-    </table>
     </div>
-
-
-
-
   </body>
-
-  <script>
-    // You can also require other files to run in this process
-    require('../renderer.js')
-  </script>
+  <script src="movement.js"></script>
 </html>
