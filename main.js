@@ -18,7 +18,6 @@ function createWindow () {
       //radii: [5,5,5,5], //rounded corners
       // width: 800,
       // height: 600,
-      resizable: false,
       fullscreen: true,
       backgroundColor: '#ececec'
   })
