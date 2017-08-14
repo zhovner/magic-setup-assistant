@@ -19,7 +19,7 @@ function createWindow () {
       // width: 800,
       // height: 600,
       fullscreen: true,
-      backgroundColor: '#000000'
+      backgroundColor: '#3e3e45'
   })
 
   // Disables F11 (Fullscreen switch)
