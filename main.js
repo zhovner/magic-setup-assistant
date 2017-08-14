@@ -14,12 +14,12 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
+      show: false,
       frame: false,
       //radii: [5,5,5,5], //rounded corners
       // width: 800,
       // height: 600,
-      fullscreen: true,
-      backgroundColor: '#000000'
+      backgroundColor: '#3e3e45'
   })
 
   // Disables F11 (Fullscreen switch)
@@ -31,6 +31,11 @@ function createWindow () {
     protocol: 'file:',
     slashes: true
   }))
+
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.setFullScreen(true)
+    mainWindow.show()
+  })
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
