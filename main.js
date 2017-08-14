@@ -12,13 +12,20 @@ const url = require('url')
 let mainWindow
 
 function createWindow () {
+  // Window size must set explicitly when running without window manager
+  const screen = electron.screen;
+  const primaryDisplay = screen.getPrimaryDisplay();
+  const displayWidth = primaryDisplay.size.width;
+  const displayHeight = primaryDisplay.size.height;
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
       show: false,
+      resizable: false,
       frame: false,
       //radii: [5,5,5,5], //rounded corners
-      // width: 800,
-      // height: 600,
+      width: displayWidth,
+      height: displayHeight,
       backgroundColor: '#3e3e45'
   })
 
