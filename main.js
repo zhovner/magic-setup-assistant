@@ -21,6 +21,7 @@ function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({
       show: false,
+      resizable: false,
       frame: false,
       //radii: [5,5,5,5], //rounded corners
       width: displayWidth,
