@@ -133,14 +133,26 @@ img, a {
 
 .arrow-button {
   width: 30px;
+  height: 30px;
   display: block;
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 6px;
+  border: none;
+  background: none;
+  background-size: 100% 100%;
+}
+
+.arrow-button:disabled {
+  opacity: 0.5;
 }
 
 #move-back-btn {
-  opacity: 0.5;
+  background-image: url(resources/arrowbackbutton.png);
+}
+
+#move-forward-btn {
+  background-image: url(resources/arrowbutton.png);
 }
 
 .arrow-button-container {

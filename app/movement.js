@@ -22,19 +22,15 @@ const switchTab = (activeTab, tabToActivate) => {
 
 const updateArrows = (tab) => {
   if (isFirstTab(tab)) {
-    backArrow.style.opacity = 0.5;
-    backArrow.removeEventListener('click', moveBack);
+    backArrow.disabled = true;
   } else {
-    backArrow.style.opacity = 1;
-    backArrow.addEventListener('click', moveBack);
+    backArrow.disabled = false;
   }
   
   if (isLastTab(tab)) {
-    forwardArrow.style.opacity = 0.5;
-    forwardArrow.removeEventListener('click', moveForward);
+    forwardArrow.disabled = true;
   } else {
-    forwardArrow.style.opacity = 1;
-    forwardArrow.addEventListener('click', moveForward);
+    forwardArrow.disabled = false;
   }
 }
 
@@ -42,5 +38,5 @@ const isFirstTab = (tab) => tab.previousElementSibling === null;
 
 const isLastTab = (tab) => tab.nextElementSibling === null;
 
-// Only forward arrow is active on first page
+backArrow.addEventListener('click', moveBack);
 forwardArrow.addEventListener('click', moveForward);
