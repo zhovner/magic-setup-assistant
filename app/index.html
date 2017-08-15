@@ -79,27 +79,20 @@
               </div>
           </div>
         </div>
-  
-        <div class="movement-buttons">
-        <table style="border: 1px solid transparent">
-          <tr>
-            <!-- This button is not active on first page -->
-            <th ><img class="arrow-button" id="move-back-btn" src="resources/arrowbackbutton.png"></th>
-            <th ></th>
-            <th ></th>
-            <!-- Pressed button is resources/arrowbuttonPressed.png -->
-            <th ><img class="arrow-button" id="move-forward-btn" src="resources/arrowbutton.png"></th>
-          </tr>
-          <tr>
-            <td >Back</td>
-            <td ></td>
-            <td ></td>
-            <td >Continue</td>
-          </tr>
-        </table>
+
+       <div class="movement-buttons">
+         <div class="arrow-button-container" >
+          <button class="arrow-button" id="move-back-btn" disabled></button>
+          <span>Back</span>
+         </div>
+         <div class="arrow-button-container" >
+          <button class="arrow-button" id="move-forward-btn"></button>
+          <span>Continue</span>
+         </div>
         </div>
       </div>
     </div>
   </body>
   <script src="movement.js"></script>
+  <script src="focus-fix.js"></script>
 </html>
