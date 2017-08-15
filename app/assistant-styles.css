@@ -141,18 +141,27 @@ img, a {
   border: none;
   background: none;
   background-size: 100% 100%;
+  background-image: url(resources/arrowbutton.png);
 }
 
 .arrow-button:disabled {
   opacity: 0.5;
 }
 
-#move-back-btn {
-  background-image: url(resources/arrowbackbutton.png);
+.arrow-button:focus {
+  background-image: url(resources/arrowbuttonFocus.png);
 }
 
-#move-forward-btn {
-  background-image: url(resources/arrowbutton.png);
+.arrow-button:active {
+  background-image: url(resources/arrowbuttonPressed.png);
+}
+
+.arrow-button:active:focus {
+  background-image: url(resources/arrowbuttonFocusPressed.png);
+}
+
+#move-back-btn {
+  transform: rotate(180deg);
 }
 
 .arrow-button-container {
