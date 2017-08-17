@@ -116,6 +116,11 @@ img, a {
   word-spacing: 0.1em;
   font-family: inherit;
   border: 1px solid #c5c5c5;
+  border-radius: 1px;
+}
+
+.list:focus {
+  box-shadow: 0 0 1px 3px #96c0f4;
 }
 
 option {
