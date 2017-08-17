@@ -109,7 +109,7 @@ img, a {
 .list::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-color: #c1c1c1;
-  border-width: 4px 3px 4px 4px;
+  border-width: 3px 3px 3px 4px;
   border-style: solid;
   border-color: transparent;
   background-clip: content-box;
