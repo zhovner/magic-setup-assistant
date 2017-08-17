@@ -4,38 +4,8 @@
   -webkit-user-select: none;
   user-select: none;
   cursor: default;
-
-
-  .list {
-    overflow-y: auto;
-    border: 1px solid black;
-    height: 3em;
-    width: 10em;
-    line-height: 1em;
-  }
-
-  .list::-webkit-scrollbar {
-    -webkit-appearance: none;
-  }
-
-  .list::-webkit-scrollbar:vertical {
-    width: 11px;
-  }
-
-  .list::-webkit-scrollbar:horizontal {
-    height: 11px;
-  }
-
-  .list::-webkit-scrollbar-thumb {
-    border-radius: 8px;
-    border: 2px solid white; /* should match background, can't be transparent */
-    background-color: rgba(0, 0, 0, .5);
-  }
-
-
-
-
 }
+
 input, button, textarea, :focus {
   outline: none; // You should add some other style for :focus to help UX/a11y
 }
@@ -121,6 +91,32 @@ img, a {
 
 .list:focus {
   box-shadow: 0 0 1px 3px #96c0f4;
+}
+
+.list::-webkit-scrollbar {
+  width: 15px;
+}
+
+.list::-webkit-scrollbar-track {
+  background-color: #fbfbfb;
+  border-left: 1px solid #ececec;
+}
+
+.list::-webkit-scrollbar-track:hover {
+  background-color: #fafafa;
+}
+
+.list::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #c1c1c1;
+  border-width: 4px 3px 4px 4px;
+  border-style: solid;
+  border-color: transparent;
+  background-clip: content-box;
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background-color: #7d7d7d;
 }
 
 option {
