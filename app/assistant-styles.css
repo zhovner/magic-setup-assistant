@@ -103,9 +103,24 @@ img, a {
   border-radius: 5px;
 }
 
-.countries select {
-  width: 250px;
+.countries {
+  margin-top: 10px;
+}
+
+.list {
+  width: 267px;
+  height: 147px;
   display: block;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  word-spacing: 0.1em;
+  font-family: inherit;
+  border: 1px solid #c5c5c5;
+}
+
+option {
+  padding-left: 4px;
+  padding-top: 2px;
 }
 
 .movement-buttons {
@@ -171,3 +186,4 @@ img, a {
 .arrow-button-container:first-of-type {
   margin-right: 50px;
 }
+
