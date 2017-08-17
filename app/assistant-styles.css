@@ -87,6 +87,7 @@ img, a {
   font-family: inherit;
   border: 1px solid #c5c5c5;
   border-radius: 1px;
+  overflow-y: auto;
 }
 
 .list:focus {
