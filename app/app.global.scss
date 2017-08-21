@@ -180,8 +180,8 @@ option {
 
 .arrow-button-container {
   display: inline-block;
-}
 
-.arrow-button-container:first-of-type {
-  margin-right: 50px;
+  &:first-of-type {
+    margin-right: 50px;
+  }
 }
