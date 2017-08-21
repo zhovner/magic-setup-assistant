@@ -4,7 +4,7 @@ import WizardLayout from './WizardLayout';
 
 export interface IProps extends RouteComponentProps<any> {
   requestAccessPoints(): void,
-  accessPoints: number
+  accessPoints: Array<any>
 }
 
 export class WifiSelect extends React.Component<IProps> {
