@@ -1,7 +1,6 @@
 import * as React from 'react';
-import WizardLayout from './WizardLayout';
 import CountryPicker from './CountryPicker';
-import { Link } from 'react-router-dom';
+import ArrowNavigation from './ArrowNavigation';
 
 export default class Home extends React.Component {
   render() {
@@ -19,7 +18,7 @@ export default class Home extends React.Component {
     ];
 
     return (
-      <WizardLayout>
+      <div className="page">
         <h1>Welcome</h1>
         <p className="description">
           In just a few steps, you can register and set up your Mac.
@@ -28,21 +27,8 @@ export default class Home extends React.Component {
         <img className="worldmap" src="resources/worldMapSmall.png"/>
         
         <CountryPicker countries={countries} />
-
-        <div className="movement-buttons">
-          <div className="arrow-button-container" >
-            <button className="arrow-button back" disabled></button>
-            <span>Back</span>
-          </div>
-          
-          <Link to='/wifi'>
-            <div className="arrow-button-container" >
-              <button className="arrow-button forward"></button>
-              <span>Continue</span>
-            </div>
-          </Link>
-        </div>
-      </WizardLayout>
+        <ArrowNavigation nextTo="wifi" backTo="" />
+      </div> 
     );
   }
 }

@@ -1,11 +1,7 @@
 @font-face {
-  font-family: SanFranciscoBold;
-  src: url(fonts/sanfranciscodisplay-bold-webfont.woff);
-}
-
-@font-face {
-  font-family: SanFranciscoRegular;
-  src: url(fonts/sanfranciscodisplay-regular-webfont.woff);
+  font-family: "SF Pro Text";
+  font-weight: 400;
+  src: url("fonts/sfpro.otf");
 }
 
 :not(input):not(textarea),
@@ -24,9 +20,9 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: SanFranciscoRegular;
+  font-family: "SF Pro Text";
   font-size: 14px;
-  background-image: url(resources/background.png);
+  background-image: url("resources/background.png");
 }
 
 html {
@@ -34,7 +30,7 @@ html {
 }
 
 h1 {
-  font-family: SanFranciscoRegular;
+  font-family: "SF Pro Text";
   font-weight: normal;
   letter-spacing: -0.035em;
   font-size: 43px;
@@ -154,7 +150,7 @@ option {
   border: none;
   background: none;
   background-size: 100% 100%;
-  background-image: url(resources/arrowbutton.png);
+  background-image: url("resources/arrowbutton.png");
 
   &.back {
     transform: rotate(180deg);
@@ -165,14 +161,14 @@ option {
   }
   
   &:focus {
-    background-image: url(resources/arrowbuttonFocus.png);
+    background-image: url("resources/arrowbuttonFocus.png");
   }
   
   &:active {
-    background-image: url(resources/arrowbuttonPressed.png);
+    background-image: url("resources/arrowbuttonPressed.png");
 
     &:focus {
-      background-image: url(resources/arrowbuttonFocusPressed.png);
+      background-image: url("resources/arrowbuttonFocusPressed.png");
     }
   }
 

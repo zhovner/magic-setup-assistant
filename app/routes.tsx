@@ -7,7 +7,7 @@ import WifiSelectPage from './containers/WifiSelectPage';
 export default () => (
   <App>
     <Switch>
-      <Route path="/" component={HomePage} />
+      <Route exact path="/" component={HomePage} />
       <Route path="/wifi" component={WifiSelectPage} />
     </Switch>
   </App>
