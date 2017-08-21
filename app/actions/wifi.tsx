@@ -1,11 +1,13 @@
-import { actionCreatorVoid } from './helpers';
+import { actionCreator } from './helpers';
 
-export const requestAccessPointList = actionCreatorVoid('REQUEST_AP_LIST');
+export const requestAccessPointList = actionCreator('REQUEST_AP_LIST');
 
 export function requestAccessPoints(delay: number = 1000) {
   return (dispatch: Function) => {
     setTimeout(() => {
-      dispatch(requestAccessPointList());
+      dispatch(requestAccessPointList([{
+        name: "Beeline"
+      }]));
     }, delay);
   };
 }
