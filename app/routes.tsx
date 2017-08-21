@@ -8,7 +8,7 @@ export default () => (
   <App>
     <Switch>
       <Route path="/" component={HomePage} />
-      <Route path="/select-wifi" component={WifiSelectPage} />
+      <Route path="/wifi" component={WifiSelectPage} />
     </Switch>
   </App>
 );

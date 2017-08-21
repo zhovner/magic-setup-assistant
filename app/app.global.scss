@@ -1,3 +1,13 @@
+@font-face {
+  font-family: SanFranciscoBold;
+  src: url(fonts/sanfranciscodisplay-bold-webfont.woff);
+}
+
+@font-face {
+  font-family: SanFranciscoRegular;
+  src: url(fonts/sanfranciscodisplay-regular-webfont.woff);
+}
+
 :not(input):not(textarea),
 :not(input):not(textarea)::after,
 :not(input):not(textarea)::before {
@@ -21,16 +31,6 @@ body {
 
 html {
   height: 100%;
-}
-
-@font-face {
-  font-family: SanFranciscoBold;
-  src: url(fonts/sanfranciscodisplay-bold-webfont.woff);
-}
-
-@font-face {
-  font-family: SanFranciscoRegular;
-  src: url(fonts/sanfranciscodisplay-regular-webfont.woff);
 }
 
 h1 {
@@ -156,6 +156,10 @@ option {
   background-size: 100% 100%;
   background-image: url(resources/arrowbutton.png);
 
+  &.back {
+    transform: rotate(180deg);
+  }
+
   &:disabled {
     opacity: 0.5;
   }
@@ -172,10 +176,6 @@ option {
     }
   }
 
-}
-
-.move-back-btn {
-  transform: rotate(180deg);
 }
 
 .arrow-button-container {

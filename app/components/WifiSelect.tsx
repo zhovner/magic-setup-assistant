@@ -1,14 +1,20 @@
 import * as React from 'react';
+import { RouteComponentProps } from 'react-router';
+import WizardLayout from './WizardLayout';
 
-let styles = require('./WifiSelect.scss');
+export interface IProps extends RouteComponentProps<any> {
+  requestAccessPoints(): void,
+  accessPoints: number
+}
 
-export default class WifiSelect extends React.Component {
+export class WifiSelect extends React.Component<IProps> {
   render() {
     return (
-      <div>
-        <div className={styles.container} data-tid="container">
-        </div>
-      </div>
+      <WizardLayout>
+        {this.props.accessPoints}
+      </WizardLayout>
     );
   }
 }
+
+export default WifiSelect;

@@ -1,13 +1,18 @@
 import * as React from 'react';
-import { RouteComponentProps } from 'react-router';
-import WifiSelect from '../components/WifiSelect';
+import { bindActionCreators } from 'redux';
+import { connect, Dispatch } from 'react-redux';
+import { WifiSelect, IProps } from '../components/WifiSelect';
+import * as WifiActions from '../actions/wifi';
+import { IState } from '../reducers';
 
-export class HomePage extends React.Component<RouteComponentProps<any>, void> {
-  render() {
-    return (
-      <WifiSelect />
-    );
-  }
+function mapStateToProps(state: IState): Partial<IProps> {
+  return {
+    accessPoints: state.accessPoints
+  };
 }
 
-export default (HomePage as any as React.StatelessComponent<RouteComponentProps<any>>);
+function mapDispatchToProps(dispatch: Dispatch<IState>): Partial<IProps> {
+  return bindActionCreators(WifiActions as any, dispatch);
+}
+
+export default (connect(mapStateToProps, mapDispatchToProps)(WifiSelect) as any as React.StatelessComponent<IProps>);

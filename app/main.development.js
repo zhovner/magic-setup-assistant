@@ -1,272 +1,82 @@
-const { app, BrowserWindow, Menu, shell } = require('electron');
+const electron = require('electron')
+// Module to control application life.
+const app = electron.app
+// Module to create native browser window.
+const BrowserWindow = electron.BrowserWindow
 
-let menu;
-let template;
-let mainWindow = null;
+const path = require('path')
+const url = require('url')
 
-if (process.env.NODE_ENV === 'production') {
-  const sourceMapSupport = require('source-map-support'); // eslint-disable-line
-  sourceMapSupport.install();
-}
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
+let mainWindow
 
-if (process.env.NODE_ENV === 'development') {
-  require('electron-debug')(); // eslint-disable-line global-require
-  const path = require('path'); // eslint-disable-line
-  const p = path.join(__dirname, '..', 'app', 'node_modules'); // eslint-disable-line
-  require('module').globalPaths.push(p); // eslint-disable-line
-}
+function createWindow () {
+  // Window size must set explicitly when running without window manager
+  const screen = electron.screen;
+  const primaryDisplay = screen.getPrimaryDisplay();
+  const displayWidth = primaryDisplay.size.width;
+  const displayHeight = primaryDisplay.size.height;
 
-app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') app.quit();
-});
-
-
-const installExtensions = () => {
-  if (process.env.NODE_ENV === 'development') {
-    const installer = require('electron-devtools-installer'); // eslint-disable-line global-require
-
-    const extensions = [
-      'REACT_DEVELOPER_TOOLS',
-      'REDUX_DEVTOOLS'
-    ];
-    const forceDownload = !!process.env.UPGRADE_EXTENSIONS;
-    return Promise.all(extensions.map(name => installer.default(installer[name], forceDownload)));
-  }
-
-  return Promise.resolve([]);
-};
-
-app.on('ready', () =>
-  installExtensions()
-  .then(() => {
+  // Create the browser window.
   mainWindow = new BrowserWindow({
-    show: false,
-    width: 1024,
-    height: 728
-  });
+      show: false,
+      resizable: false,
+      frame: false,
+      //radii: [5,5,5,5], //rounded corners
+      width: displayWidth,
+      height: displayHeight,
+      backgroundColor: '#3e3e45'
+  })
 
-  mainWindow.loadURL(`file://${__dirname}/app.html`);
+  // Disables F11 (Fullscreen switch)
+  mainWindow.setMenu(null);
 
-  mainWindow.webContents.on('did-finish-load', () => {
-    mainWindow.show();
-    mainWindow.focus();
-  });
+  // and load the index.html of the app.
+  mainWindow.loadURL(url.format({
+    pathname: path.join(__dirname, '/app.html'),
+    protocol: 'file:',
+    slashes: true
+  }))
 
-  mainWindow.on('closed', () => {
-    mainWindow = null;
-  });
+  mainWindow.once('ready-to-show', () => {
+    mainWindow.setFullScreen(true)
+    mainWindow.show()
+  })
 
-  if (process.env.NODE_ENV === 'development') {
-    mainWindow.openDevTools();
-    mainWindow.webContents.on('context-menu', (e, props) => {
-      const { x, y } = props;
+  // Open the DevTools.
+  // mainWindow.webContents.openDevTools()
 
-      Menu.buildFromTemplate([{
-        label: 'Inspect element',
-        click() {
-          mainWindow.inspectElement(x, y);
-        }
-      }]).popup(mainWindow);
-    });
+  // Emitted when the window is closed.
+  mainWindow.on('closed', function () {
+    // Dereference the window object, usually you would store windows
+    // in an array if your app supports multi windows, this is the time
+    // when you should delete the corresponding element.
+    mainWindow = null
+  })
+}
+
+// This method will be called when Electron has finished
+// initialization and is ready to create browser windows.
+// Some APIs can only be used after this event occurs.
+app.on('ready', createWindow)
+
+// Quit when all windows are closed.
+app.on('window-all-closed', function () {
+  // On OS X it is common for applications and their menu bar
+  // to stay active until the user quits explicitly with Cmd + Q
+  if (process.platform !== 'darwin') {
+    app.quit()
   }
+})
 
-  if (process.platform === 'darwin') {
-    template = [{
-      label: 'Electron',
-      submenu: [{
-        label: 'About ElectronReact',
-        selector: 'orderFrontStandardAboutPanel:'
-      }, {
-        type: 'separator'
-      }, {
-        label: 'Services',
-        submenu: []
-      }, {
-        type: 'separator'
-      }, {
-        label: 'Hide ElectronReact',
-        accelerator: 'Command+H',
-        selector: 'hide:'
-      }, {
-        label: 'Hide Others',
-        accelerator: 'Command+Shift+H',
-        selector: 'hideOtherApplications:'
-      }, {
-        label: 'Show All',
-        selector: 'unhideAllApplications:'
-      }, {
-        type: 'separator'
-      }, {
-        label: 'Quit',
-        accelerator: 'Command+Q',
-        click() {
-          app.quit();
-        }
-      }]
-    }, {
-      label: 'Edit',
-      submenu: [{
-        label: 'Undo',
-        accelerator: 'Command+Z',
-        selector: 'undo:'
-      }, {
-        label: 'Redo',
-        accelerator: 'Shift+Command+Z',
-        selector: 'redo:'
-      }, {
-        type: 'separator'
-      }, {
-        label: 'Cut',
-        accelerator: 'Command+X',
-        selector: 'cut:'
-      }, {
-        label: 'Copy',
-        accelerator: 'Command+C',
-        selector: 'copy:'
-      }, {
-        label: 'Paste',
-        accelerator: 'Command+V',
-        selector: 'paste:'
-      }, {
-        label: 'Select All',
-        accelerator: 'Command+A',
-        selector: 'selectAll:'
-      }]
-    }, {
-      label: 'View',
-      submenu: (process.env.NODE_ENV === 'development') ? [{
-        label: 'Reload',
-        accelerator: 'Command+R',
-        click() {
-          mainWindow.webContents.reload();
-        }
-      }, {
-        label: 'Toggle Full Screen',
-        accelerator: 'Ctrl+Command+F',
-        click() {
-          mainWindow.setFullScreen(!mainWindow.isFullScreen());
-        }
-      }, {
-        label: 'Toggle Developer Tools',
-        accelerator: 'Alt+Command+I',
-        click() {
-          mainWindow.toggleDevTools();
-        }
-      }] : [{
-        label: 'Toggle Full Screen',
-        accelerator: 'Ctrl+Command+F',
-        click() {
-          mainWindow.setFullScreen(!mainWindow.isFullScreen());
-        }
-      }]
-    }, {
-      label: 'Window',
-      submenu: [{
-        label: 'Minimize',
-        accelerator: 'Command+M',
-        selector: 'performMiniaturize:'
-      }, {
-        label: 'Close',
-        accelerator: 'Command+W',
-        selector: 'performClose:'
-      }, {
-        type: 'separator'
-      }, {
-        label: 'Bring All to Front',
-        selector: 'arrangeInFront:'
-      }]
-    }, {
-      label: 'Help',
-      submenu: [{
-        label: 'Learn More',
-        click() {
-          shell.openExternal('http://electron.atom.io');
-        }
-      }, {
-        label: 'Documentation',
-        click() {
-          shell.openExternal('https://github.com/atom/electron/tree/master/docs#readme');
-        }
-      }, {
-        label: 'Community Discussions',
-        click() {
-          shell.openExternal('https://discuss.atom.io/c/electron');
-        }
-      }, {
-        label: 'Search Issues',
-        click() {
-          shell.openExternal('https://github.com/atom/electron/issues');
-        }
-      }]
-    }];
-
-    menu = Menu.buildFromTemplate(template);
-    Menu.setApplicationMenu(menu);
-  } else {
-    template = [{
-      label: '&File',
-      submenu: [{
-        label: '&Open',
-        accelerator: 'Ctrl+O'
-      }, {
-        label: '&Close',
-        accelerator: 'Ctrl+W',
-        click() {
-          mainWindow.close();
-        }
-      }]
-    }, {
-      label: '&View',
-      submenu: (process.env.NODE_ENV === 'development') ? [{
-        label: '&Reload',
-        accelerator: 'Ctrl+R',
-        click() {
-          mainWindow.webContents.reload();
-        }
-      }, {
-        label: 'Toggle &Full Screen',
-        accelerator: 'F11',
-        click() {
-          mainWindow.setFullScreen(!mainWindow.isFullScreen());
-        }
-      }, {
-        label: 'Toggle &Developer Tools',
-        accelerator: 'Alt+Ctrl+I',
-        click() {
-          mainWindow.toggleDevTools();
-        }
-      }] : [{
-        label: 'Toggle &Full Screen',
-        accelerator: 'F11',
-        click() {
-          mainWindow.setFullScreen(!mainWindow.isFullScreen());
-        }
-      }]
-    }, {
-      label: 'Help',
-      submenu: [{
-        label: 'Learn More',
-        click() {
-          shell.openExternal('http://electron.atom.io');
-        }
-      }, {
-        label: 'Documentation',
-        click() {
-          shell.openExternal('https://github.com/atom/electron/tree/master/docs#readme');
-        }
-      }, {
-        label: 'Community Discussions',
-        click() {
-          shell.openExternal('https://discuss.atom.io/c/electron');
-        }
-      }, {
-        label: 'Search Issues',
-        click() {
-          shell.openExternal('https://github.com/atom/electron/issues');
-        }
-      }]
-    }];
-    menu = Menu.buildFromTemplate(template);
-    mainWindow.setMenu(menu);
+app.on('activate', function () {
+  // On OS X it's common to re-create a window in the app when the
+  // dock icon is clicked and there are no other windows open.
+  if (mainWindow === null) {
+    createWindow()
   }
-}));
+})
+
+// In this file you can include the rest of your app's specific main process
+// code. You can also put them in separate files and require them here.
