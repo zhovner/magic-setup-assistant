@@ -2,7 +2,7 @@ import * as React from 'react';
 
 export default class CountryPicker extends React.Component<{countries: Array<string>}, {}> {
   render() {
-    const contryOptions = this.props.countries.map(country => <option>{country}</option>)
+    const contryOptions = this.props.countries.map((country, i) => <option key={i}>{country}</option>)
     
     return (
         <div className="countries">
