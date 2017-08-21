@@ -5,6 +5,7 @@ import { routerMiddleware, push } from 'react-router-redux';
 import { createLogger } from 'redux-logger';
 import rootReducer from '../reducers';
 
+import * as wifiActions from '../actions/wifi';
 
 declare const window: Window & {
   __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?(a: any): void;
@@ -16,6 +17,7 @@ declare const module: NodeModule & {
   }
 };
 
+const actionCreators = Object.assign({}, wifiActions, {
   push
 });
 
