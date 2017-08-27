@@ -44,7 +44,6 @@ module.exports = merge(baseConfig, {
         test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/, 
         loader: 'url-loader?name=fonts/[name].[ext]' 
       },
-      // Common Image Formats
       {
         test: /\.(?:ico|gif|png|jpg|jpeg|webp)$/,
         use: 'url-loader',

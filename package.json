@@ -1,8 +1,8 @@
 {
-  "name": "electron-react-typescript-boilerplate",
-  "productName": "ElectronReactTypescript",
+  "name": "MagicWizard",
+  "productName": "OSX Setup Assistant",
   "version": "0.10.0",
-  "description": "Electron application boilerplate based on TypeScript, React, React Router, Webpack, React Hot Loader for rapid application development",
+  "description": "Magic setup assistant made with electron",
   "main": "main.js",
   "scripts": {
     "hot-server": "cross-env NODE_ENV=development node --max_old_space_size=2096 server.js",
@@ -19,8 +19,8 @@
     "package-all": "npm run build && build -mwl"
   },
   "build": {
-    "productName": "ElectronReactTypescript",
-    "appId": "io.github.irath96.ElectronReactTypescript",
+    "productName": "Magic Setup Assistant",
+    "appId": "io.github.zhovner.Magic Setup Assistant",
     "dmg": {
       "contents": [
         {
