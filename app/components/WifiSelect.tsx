@@ -9,7 +9,13 @@ export interface IProps extends RouteComponentProps<any> {
 }
 
 export class WifiSelect extends React.Component<IProps> {
+  componentDidMount() {
+    this.props.requestAccessPoints();
+  }
+
   render() {
+    const accessPoints = this.props.accessPoints.map(accessPoint => <option key={accessPoint.name}>{accessPoint.name}</option>)
+    console.log(accessPoints)
     return (
       <div className="page">
         <h1>Select Your Wi-Fi Network</h1>
@@ -18,17 +24,14 @@ export class WifiSelect extends React.Component<IProps> {
           If you connect to the Internet using a wired network or other networok device, click Other
           <br />
           Network Options. If you would rather set up your network connection later, click Continue.
-        </p>
+        </p>  
         <img height="140" src="resources/wififan.png" />
         <br/>
         <br/>
 
         <div className="network-list">
           <select className="list" size={6}>
-            <option>MGTS GPON 163</option>
-            <option>Vovan</option>
-            <option>Beeline_WiFi_FREE</option>
-            <option>StarLink Service</option>
+            {accessPoints}
           </select>
           <br/>
             <ProgressCircle size={18}/>

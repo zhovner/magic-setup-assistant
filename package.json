@@ -144,7 +144,8 @@
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0",
-    "source-map-support": "^0.4.6"
+    "source-map-support": "^0.4.6",
+    "wifi-control": "^2.0.1"
   },
   "devEngines": {
     "node": ">=6.x",
