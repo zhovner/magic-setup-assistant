@@ -14,7 +14,8 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: SanFranciscoRegular;
+  font-family: "SF Pro Text";
+  font-weight: 400;
   font-size: 14px;
   background-image: url(resources/background.png);
 }
@@ -24,28 +25,25 @@ html {
 }
 
 @font-face {
-  font-family: SanFranciscoBold;
-  src: url(fonts/sanfranciscodisplay-bold-webfont.woff);
-}
-
-@font-face {
-  font-family: SanFranciscoRegular;
-  src: url(fonts/sanfranciscodisplay-regular-webfont.woff);
+  font-family: "SF Pro Text";
+  font-weight: 400;
+  src: url(fonts/SF-Pro-Text-Regular.otf);
 }
 
 h1 {
-  font-family: SanFranciscoRegular;
-  font-weight: normal;
-  letter-spacing: -0.035em;
-  font-size: 43px;
-  margin-top: 18px;
-  margin-bottom: 14px;
+  font-family: "SF Pro Text";
+  font-weight: 400;
+  letter-spacing: -0.053em;
+  font-size: 41px;
+  margin-top: 20px;
+  margin-bottom: 15px;
   padding: 0px;
   color: #929292;
+  margin-left: -3px;
 }
 
 p, span {
-  letter-spacing: 0.013em;
+  letter-spacing: -0.038em;
 }
 
 img, a {
@@ -53,8 +51,8 @@ img, a {
 }
 
 .worldmap {
-  margin-left: 0.1em;
-  margin-top: 0.15em;
+  margin-left: 0.11em;
+  margin-top: 0.18em;
   height: 200px;
 }
 
@@ -131,7 +129,7 @@ option {
   bottom: 20px;
   width: 100%;
   text-align: center;
-  padding-left: 7px;
+  padding-left: 6px;
 }
 
 .description {
